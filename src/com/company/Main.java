@@ -6,7 +6,12 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        test();
+//        test();
+        new StartPanel();
+        new NewUser();
+        new UserHomePage();
+        new DepositPanel();
+        new WithdrawPanel();
         new HistoryTransactions();
     }
 

@@ -24,7 +24,7 @@ public class NewUser extends JFrame{
         setLayout( new FlowLayout() ); // set the layout to be a flow layout
 
         // set the image icon to be the one of TopBank and then transfer it to a JLabel so we can add it to the frame
-        ImageIcon topBank = new ImageIcon("src/TopBank.png");
+        ImageIcon topBank = new ImageIcon("TopBank.png");
         imgLabel = new JLabel(topBank);
         imgLabel.setBounds(10, 10, 250, 100);
 
