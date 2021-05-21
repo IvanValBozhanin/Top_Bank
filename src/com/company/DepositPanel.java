@@ -1,44 +1,62 @@
 package com.company;
+
 import java.awt.*;
+import java.io.IOException;
 
 import javax.swing.*;
 
+import static com.company.Main.*;
+
 public class DepositPanel extends JFrame {
     //initialization
-    private JLabel labelY;
-    private JButton dep;
-    private JButton exit;
-    private JLabel icon;
-    private JPanel e;
-    private JTextField textField1;
+    private JLabel labelDeposit;
+    private JButton depositButton;
+    private JButton exitButton;
+    private JLabel bankIcon;
+    private JPanel jPanel;
+    private JTextField enterSum;
 
     public DepositPanel() {
         // window parameters
         setSize(450, 260);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
+
         // bank logo stuff
-        icon = new JLabel(new ImageIcon("TopBank.png"));
-        icon.setBounds(20, 10, 215, 103);
+        bankIcon = new JLabel(new ImageIcon("TopBank.png"));
+        bankIcon.setBounds(20, 10, 215, 103);
 
         // grid panel
-        e = new JPanel();
-        e.setLayout(new GridLayout(2, 2));
+        jPanel = new JPanel();
+        jPanel.setLayout(new GridLayout(2, 2));
 
         // declaration of the parameters
-        textField1 = new JTextField(15);
-        labelY = new JLabel("Sum to be deposited:");
-        dep = new JButton("Deposit");
-        exit = new JButton("Exit page");
+        enterSum = new JTextField(15);
+        labelDeposit = new JLabel("Sum to be deposited:");
 
+        depositButton = new JButton("Deposit");
+        depositButton.addActionListener(e -> {
+            users.get(currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
+            try {
+                updateUsers();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        exitButton = new JButton("Exit page");
+        exitButton.addActionListener(e -> {
+            new UserHomePage(currentUserPosition);
+            dispose();
+        });
         // adding them to the panel in the correct order
-        e.add(labelY);
-        e.add(textField1);
-        e.add(exit);
-        e.add(dep);
+        jPanel.add(labelDeposit);
+        jPanel.add(enterSum);
+        jPanel.add(exitButton);
+        jPanel.add(depositButton);
         // insertion of the icon and panel into the frame
-        add(icon);
-        add(e);
+        add(bankIcon);
+        add(jPanel);
     }
 }
