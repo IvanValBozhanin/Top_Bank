@@ -2,20 +2,19 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+
+import static com.company.Main.updateUsers;
+import static com.company.Main.users;
 
 public class NewUser extends JFrame{
 
     // initializing all frames, textFields, buttons, and labels as well as an ImageIcon
     public JFrame frame;
-    private JTextField textName;
-    private JTextField textPass;
-    private JTextField textUser;
+    private JTextField textName, textPass, textUser;
     private JButton register;
-    private JLabel nameLabel;
-    private JLabel passLabel;
-    private JLabel userLabel;
+    private JLabel nameLabel, passLabel, userLabel, imgLabel;
     private ImageIcon topBank;
-    private JLabel imgLabel;
 
     public NewUser() { // create a constructor for the starting panel
         super("NewUserPage"); // use the constructor for the superclass JFrame to create a panel
@@ -62,6 +61,22 @@ public class NewUser extends JFrame{
         register = new JButton("Register");
         register.setFont(new Font("Serif", Font.ITALIC, 20));
         register.setBounds(200, 290, 130, 30);
+        register.addActionListener(e -> {
+            /**
+             * exception(s) needed
+             */
+            User user = new User(textName.getText(), textUser.getText(), textPass.getText(), 0.0);
+            users.add(user);
+            System.out.printf("%s; %s; %s\n", textName.getText(), textUser.getText(), textPass.getText());
+
+            try {
+                updateUsers();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
+            frame.dispose();
+        });
 
         //add everything to the JFrame
         frame.add(imgLabel);
