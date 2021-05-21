@@ -197,5 +197,4 @@ public class HistoryTransactionsPanel extends JFrame {
             list[n++] = second[s++];
     }
 
-
 }

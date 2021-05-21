@@ -8,22 +8,16 @@ import static com.company.Main.users;
 
 public class UserHomePage extends JFrame {
     //initialization
-    private JLabel nameLabel, balanceLabel;
+    private JLabel nameLabel, balanceLabel, bankIcon;
     private String name;
     private double bal = 0;
-    private JButton depositButton, withdrawButton;
-    private JButton historyOfTransactionsButton;
-    private JButton exitButton;
+    private JButton depositButton, withdrawButton, historyOfTransactionsButton, exitButton;
 
-    private JLabel bankIcon;
-
-    private JPanel jButtonPanel;
-    private JPanel jLabelPanel;
+    private JPanel jButtonPanel, jLabelPanel;
 
     public UserHomePage(int position) {
         //basic window parameter stuff
         setSize(450, 260);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);

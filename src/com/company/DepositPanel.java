@@ -38,6 +38,7 @@ public class DepositPanel extends JFrame {
         depositButton = new JButton("Deposit");
         depositButton.addActionListener(e -> {
             users.get(currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
+            enterSum.setText("");
             try {
                 updateUsers();
             } catch (IOException ioException) {

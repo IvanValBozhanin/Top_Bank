@@ -23,6 +23,11 @@ public class WithdrawPanel extends JFrame {
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
 
+
+        /**
+         * konst@tninte, komentarite!!!???@@!
+         *
+         */
         // bank logo stuff
         bankIcon = new JLabel(new ImageIcon("TopBank.png"));
         bankIcon.setBounds(20, 10, 215, 103);
@@ -38,6 +43,7 @@ public class WithdrawPanel extends JFrame {
         withdrawButton = new JButton("Withdraw");
         withdrawButton.addActionListener(e -> {
             users.get(currentUserPosition).withdraw(Double.parseDouble(enterSum.getText()));
+            enterSum.setText("");
             try {
                 updateUsers();
             } catch (IOException ioException) {
