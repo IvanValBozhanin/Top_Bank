@@ -5,14 +5,20 @@ import java.util.ArrayList;
 
 public class Main {
 
+    public static ArrayList<User> users = new ArrayList<>();
+    public static int currentUserPosition;
+
     public static void main(String[] args) throws IOException {
 //        test();
         new StartPanel();
-        new NewUser();
-        new UserHomePage();
-        new DepositPanel();
-        new WithdrawPanel();
-        new HistoryTransactions();
+    }
+
+    public static void updateUsers() throws IOException {
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src.dat"))){
+            for(User user: users){
+                out.writeObject(user);
+            }
+        }
     }
 
     public static void test() throws IOException{
