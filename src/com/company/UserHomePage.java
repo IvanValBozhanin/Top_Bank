@@ -4,53 +4,89 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import static com.company.Main.users;
+
 public class UserHomePage extends JFrame {
     //initialization
-    private JLabel labelX;
-    private JLabel labelY;
-    private String ime = "Pesho";
-    private double para = 0;
-    private JButton dep;
-    private JButton wdr;
-    private JButton hstr;
-    private JButton exit;
+    private JLabel nameLabel, balanceLabel;
+    private String name;
+    private double bal = 0;
+    private JButton depositButton, withdrawButton;
+    private JButton historyOfTransactionsButton;
+    private JButton exitButton;
 
-    private JLabel icon;
+    private JLabel bankIcon;
 
-    private JPanel panelCenter;
-    private JPanel e;
+    private JPanel jButtonPanel;
+    private JPanel jLabelPanel;
 
-    public UserHomePage() {
+    public UserHomePage(int position) {
         //basic window parameter stuff
         setSize(450, 260);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
+
         //adding bank logo to frame
-        icon = new JLabel(new ImageIcon("TopBank.png"));
-        icon.setBounds(20, 10, 215, 103);
-        add(icon);
+        bankIcon = new JLabel(new ImageIcon("TopBank.png"));
+        bankIcon.setBounds(20, 10, 215, 103);
+        add(bankIcon);
+
         //two new panels to unite some bits for a better view
-        panelCenter = new JPanel();
-        e = new JPanel();
-        e.setLayout(new GridLayout(3,1 ));
-        panelCenter.setLayout(new GridLayout(1, 3));
+        jButtonPanel = new JPanel();
+        jLabelPanel = new JPanel();
+        jLabelPanel.setLayout(new GridLayout(3,1 ));
+        jButtonPanel.setLayout(new GridLayout(1, 3));
+
         //declaration of the components
-        labelX = new JLabel("Name:" + ime);
-        labelY = new JLabel("Sum:" + para);
-        wdr = new JButton("Withdraw");
-        dep = new JButton("Deposit");
-        hstr = new JButton("Action History");
-        exit = new JButton("Exit page");
+        /**
+         * needs formatting
+         */
+        nameLabel = new JLabel("Name:" + users.get(position).getName());
+
+        /**
+         * formatting
+         */
+        balanceLabel = new JLabel("Sum:" + users.get(position).getBalance());
+
+        /**
+         * formatting
+         */
+        withdrawButton = new JButton("Withdraw");
+        withdrawButton.addActionListener(e -> {
+            new WithdrawPanel();
+            dispose();
+        });
+        /**
+         * formatting
+         */
+        depositButton = new JButton("Deposit");
+        depositButton.addActionListener(e -> {
+            new DepositPanel();
+            dispose();
+        });
+
+        historyOfTransactionsButton = new JButton("Action History");
+        historyOfTransactionsButton.addActionListener(e -> {
+            new HistoryTransactionsPanel();
+        });
+
+        exitButton = new JButton("Exit page");
+        exitButton.addActionListener(e -> {
+            dispose();
+        });
+
         //adding the components to their respective panels
-        panelCenter.add(dep);
-        panelCenter.add(wdr);
-        panelCenter.add(hstr);
-        e.add(labelX);
-        e.add(labelY);
-        e.add(exit);
+        jButtonPanel.add(depositButton);
+        jButtonPanel.add(withdrawButton);
+        jButtonPanel.add(historyOfTransactionsButton);
+        jLabelPanel.add(nameLabel);
+        jLabelPanel.add(balanceLabel);
+        jLabelPanel.add(exitButton);
+
         //adding the panels to the frame
-        add(panelCenter);
-        add(e);
+        add(jButtonPanel);
+        add(jLabelPanel);
     }
 }
