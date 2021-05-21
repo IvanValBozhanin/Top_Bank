@@ -37,7 +37,7 @@ public class User implements Serializable {
             }
         }
         catch (InvalidParameterException e){
-            System.out.println("Cannot withdraw so much money." + username);
+            System.out.println("Cannot withdraw so much money. username: " + username);
         }
     }
 
@@ -47,7 +47,7 @@ public class User implements Serializable {
         balance += sum;
     }
 
-    //getters for some of the fields
+    //getters for the field variables
 
     public ArrayList<Triplet> getRegister() {
         return register;
@@ -59,6 +59,14 @@ public class User implements Serializable {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 
     // toString function
