@@ -5,8 +5,6 @@ import java.io.IOException;
 
 import javax.swing.*;
 
-import static com.company.Main.*;
-
 public class DepositPanel extends JFrame {
     //initialization
     private JLabel labelDeposit;
@@ -18,6 +16,7 @@ public class DepositPanel extends JFrame {
 
     public DepositPanel() {
         // window parameters
+        setResizable(false);
         setSize(450, 260);
         setVisible(true);
         setLayout(new FlowLayout());
@@ -37,10 +36,10 @@ public class DepositPanel extends JFrame {
 
         depositButton = new JButton("Deposit");
         depositButton.addActionListener(e -> {
-            users.get(currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
+            User.users.get(User.currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
             enterSum.setText("");
             try {
-                updateUsers();
+                User.updateUsers();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -48,7 +47,7 @@ public class DepositPanel extends JFrame {
 
         exitButton = new JButton("Exit page");
         exitButton.addActionListener(e -> {
-            new UserHomePage(currentUserPosition);
+            new UserHomePage(User.currentUserPosition);
             dispose();
         });
         // adding them to the panel in the correct order

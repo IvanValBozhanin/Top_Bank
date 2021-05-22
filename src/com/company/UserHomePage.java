@@ -4,7 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import static com.company.Main.users;
+import static com.company.User.users;
 
 public class UserHomePage extends JFrame {
     //initialization
@@ -17,6 +17,7 @@ public class UserHomePage extends JFrame {
 
     public UserHomePage(int position) {
         //basic window parameter stuff
+        setResizable(false);
         setSize(450, 260);
         setVisible(true);
         setLayout(new FlowLayout());

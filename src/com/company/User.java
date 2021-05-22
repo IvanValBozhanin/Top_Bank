@@ -1,5 +1,8 @@
 package com.company;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -8,6 +11,9 @@ import java.util.Date;
 
 // User class: represents the client in the system
 public class User implements Serializable {
+
+    public static ArrayList<User> users = new ArrayList<>();
+    public static int currentUserPosition;
 
     // initialize all the fields which will be needed
     private String name;
@@ -23,6 +29,14 @@ public class User implements Serializable {
         this.password = password;
         this.balance = balance;
         register = new ArrayList<>();
+    }
+
+    public static void updateUsers() throws IOException {
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src.dat"))){
+            for(User user: users){
+                out.writeObject(user);
+            }
+        }
     }
 
     // defines the operations when withdrawing

@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
-import static com.company.Main.users;
-import static com.company.Main.currentUserPosition;
+import static com.company.User.users;
+import static com.company.User.currentUserPosition;
 
 public class StartPanel extends JFrame {
 
@@ -26,6 +26,7 @@ public class StartPanel extends JFrame {
                 try {
                     for (; ; ) {
                         User user = (User) in.readObject();
+                        System.out.println(user.toString());
                         users.add(user);
                     }
                 } catch (ClassNotFoundException e) {
@@ -97,6 +98,7 @@ public class StartPanel extends JFrame {
         frame.add(newUser);
 
         //set the size, relative location, layout and visibility of the frame
+        frame.setResizable(false);
         frame.setSize(530, 350);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);

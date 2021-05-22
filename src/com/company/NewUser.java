@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
-import static com.company.Main.updateUsers;
-import static com.company.Main.users;
+import static com.company.User.updateUsers;
+import static com.company.User.users;
 
 public class NewUser extends JFrame{
 
@@ -89,6 +89,7 @@ public class NewUser extends JFrame{
         frame.add(register);
 
         //set the size, relative location, layout and visibility of the frame
+        frame.setResizable(false);
         frame.setSize(530, 400);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);

@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
-import static com.company.Main.currentUserPosition;
-import static com.company.Main.users;
+import static com.company.User.currentUserPosition;
+import static com.company.User.users;
 
 public class HistoryTransactionsPanel extends JFrame {
 
@@ -159,7 +159,7 @@ public class HistoryTransactionsPanel extends JFrame {
             frame.add(onlyWithdraw);
             frame.add(both);
 
-
+            frame.setResizable(false);
             frame.setSize(800, 500);
             frame.setLocationRelativeTo(null);
             frame.setLayout(null);
