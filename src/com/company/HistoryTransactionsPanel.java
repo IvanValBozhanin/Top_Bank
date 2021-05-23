@@ -33,11 +33,10 @@ public class HistoryTransactionsPanel extends JFrame {
         icon.setBounds(20, 10, 215, 103);
 
 
-        // set the text, font, orientation, and position for the register button
+        // set the text, font, orientation, position, and function for the sorting by type button
         switchTransactionSorting = new JButton("Sort by Date");
         switchTransactionSorting.setFont(new Font("Serif", Font.PLAIN, 20));
         switchTransactionSorting.setBounds(520, 30, 260, 30);
-
         Triplet [] triplets = users.get(currentUserPosition).getRegister().toArray(new Triplet[0]);
         switchTransactionSorting.addActionListener(e -> {
             isLeastToLargest = true;
@@ -78,6 +77,7 @@ public class HistoryTransactionsPanel extends JFrame {
             }
         });
 
+        // set the text, font, orientation, position, and function for the sorting by order button
         switchOrder = new JButton("From Smallest to Largest");
         switchOrder.setFont(new Font("Serif", Font.PLAIN, 20));
         switchOrder.setBounds(520, 70, 260, 30);
@@ -106,6 +106,7 @@ public class HistoryTransactionsPanel extends JFrame {
             }
         });
 
+        // set the text, font, orientation, position, and function for the button, showing only deposits
         onlyDeposit = new JButton("Only Deposits");
         onlyDeposit.setFont(new Font("Serif", Font.PLAIN, 20));
         onlyDeposit.setBounds(250, 20, 260, 30);
@@ -118,6 +119,7 @@ public class HistoryTransactionsPanel extends JFrame {
             }
         });
 
+        // set the text, font, orientation, position, and function for the button, showing only withdraws
         onlyWithdraw = new JButton("Only Withdraws");
         onlyWithdraw.setFont(new Font("Serif", Font.PLAIN, 20));
         onlyWithdraw.setBounds(250, 55, 260, 30);
@@ -130,6 +132,7 @@ public class HistoryTransactionsPanel extends JFrame {
             }
         });
 
+        // set the text, font, orientation, position, and function for the button, showing both
         both = new JButton("Deposits and Withdraws");
         both.setFont(new Font("Serif", Font.PLAIN, 20));
         both.setBounds(250, 90, 260, 30);
@@ -167,6 +170,7 @@ public class HistoryTransactionsPanel extends JFrame {
         }
     }
 
+    //implements Merge Sort Function
     public static <E> void mergeSort(E[] list, Comparator<? super E> comparator){
         if(list.length > 1){
             E[] first = Arrays.copyOf(list, list.length/2);
@@ -179,6 +183,7 @@ public class HistoryTransactionsPanel extends JFrame {
         }
     }
 
+    //implements the merging part of the sort
     public static <E> void merge(E[] first, E[] second, E[] list,
                                  Comparator<? super E> comparator) {
         int f = 0, s = 0,  n = 0;

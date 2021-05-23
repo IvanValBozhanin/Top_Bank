@@ -57,7 +57,7 @@ public class NewUser extends JFrame{
         textPass.setFont(new Font("Serif", Font.ITALIC, 20));
         textPass.setBounds(125, 240, 300, 30);
 
-        // set the text, font, orientation and position for the register button
+        // set the text, font, orientation, position, and function for the register button
         register = new JButton("Register");
         register.setFont(new Font("Serif", Font.ITALIC, 20));
         register.setBounds(200, 290, 130, 30);

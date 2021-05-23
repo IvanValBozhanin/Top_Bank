@@ -20,6 +20,7 @@ public class StartPanel extends JFrame {
         super("FrontPage"); // use the constructor for the superclass JFrame to create a panel
         frame = new JFrame(); // declare the JFrame
 
+        //restores information from the file
         File file = new File("src.dat");
         if (file.length() != 0) {
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("src.dat"))) {
@@ -64,7 +65,7 @@ public class StartPanel extends JFrame {
         textPass.setFont(new Font("Serif", Font.ITALIC, 20));
         textPass.setBounds(125, 190, 300, 30);
 
-        // set the text, font, orientation and position for log in button
+        // set the text, font, orientation, position, and function for log in button
         logIn = new JButton("Log in");
         logIn.setFont(new Font("Serif", Font.ITALIC, 20));
         logIn.setBounds(150, 250, 100, 30);
@@ -80,7 +81,7 @@ public class StartPanel extends JFrame {
             }
         });
 
-        // set the text, font, orientation and position for the new user button
+        // set the text, font, orientation, position, and function for the new user button
         newUser = new JButton("New User");
         newUser.setFont(new Font("Serif", Font.ITALIC, 20));
         newUser.setBounds(270, 250, 120, 30);

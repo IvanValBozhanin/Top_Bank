@@ -7,7 +7,7 @@ import javax.swing.*;
 import static com.company.User.users;
 
 public class UserHomePage extends JFrame {
-    //initialization
+    //declaration of the fields
     private JLabel nameLabel, balanceLabel, bankIcon;
     private String name;
     private double bal = 0;
@@ -34,17 +34,19 @@ public class UserHomePage extends JFrame {
         jLabelPanel.setLayout(new GridLayout(3,1 ));
         jButtonPanel.setLayout(new GridLayout(1, 3));
 
-        //declaration of the components
+        //initialization of the Name label component
         /**
          * needs formatting
          */
         nameLabel = new JLabel("Name:" + users.get(position).getName());
 
+        //initialization of the Balance label component
         /**
          * formatting
          */
         balanceLabel = new JLabel("Sum:" + users.get(position).getBalance());
 
+        //initialization of the Withdraw button component
         /**
          * formatting
          */
@@ -53,6 +55,8 @@ public class UserHomePage extends JFrame {
             new WithdrawPanel();
             dispose();
         });
+
+        //initialization of the Deposit button component
         /**
          * formatting
          */
@@ -62,11 +66,14 @@ public class UserHomePage extends JFrame {
             dispose();
         });
 
+
+        //initialization of the History of transaction button component
         historyOfTransactionsButton = new JButton("Action History");
         historyOfTransactionsButton.addActionListener(e -> {
             new HistoryTransactionsPanel();
         });
 
+        //initialization of the Exit button component
         exitButton = new JButton("Exit page");
         exitButton.addActionListener(e -> {
             dispose();
