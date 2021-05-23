@@ -36,7 +36,12 @@ public class Triplet implements Serializable {
     // toString function
     @Override
     public String toString() {
-        return String.format("%s \t $%.2f \t %tc", isWithdraw ? "Withdraw" : "Deposit",
-                sum, date);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(isWithdraw ? "Withdraw" : "Deposit");
+        stringBuilder.append(" \t ");
+        stringBuilder.append(String.format("$%.2f", sum));
+        stringBuilder.append(" \t ");
+        stringBuilder.append(String.format("%tc", date));
+        return stringBuilder.toString();
     }
 }
