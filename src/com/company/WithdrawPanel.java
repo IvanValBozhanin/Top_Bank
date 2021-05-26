@@ -7,10 +7,9 @@ import javax.swing.*;
 
 public class WithdrawPanel extends JFrame {
     //initialization
-    private JLabel withdrawLabel;
-    private JButton withdrawButton;
-    private JButton exitButton;
-    private JLabel bankIcon;
+    private final Font SERIF = new Font("Serif", Font.ITALIC, 20);
+    private JLabel withdrawLabel, bankIcon;
+    private JButton withdrawButton, exitButton;
     private JPanel jPanel;
     private JTextField enterSum;
 

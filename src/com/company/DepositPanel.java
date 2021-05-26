@@ -6,11 +6,11 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class DepositPanel extends JFrame {
-    //initialization
-    private JLabel labelDeposit;
-    private JButton depositButton;
-    private JButton exitButton;
-    private JLabel bankIcon;
+
+    //initialization of the fields
+    private final Font SERIF = new Font("Serif", Font.ITALIC, 20);
+    private JLabel labelDeposit, bankIcon;
+    private JButton depositButton, exitButton;
     private JPanel jPanel;
     private JTextField enterSum;
 

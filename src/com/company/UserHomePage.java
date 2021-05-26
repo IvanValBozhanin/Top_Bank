@@ -7,7 +7,9 @@ import javax.swing.*;
 import static com.company.User.users;
 
 public class UserHomePage extends JFrame {
+
     //declaration of the fields
+    private final Font SERIF = new Font("Serif", Font.ITALIC, 20);
     private JLabel nameLabel, balanceLabel, bankIcon;
     private String name;
     private double bal = 0;
