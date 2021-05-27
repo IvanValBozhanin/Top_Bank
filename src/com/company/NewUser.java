@@ -15,7 +15,6 @@ public class NewUser extends JFrame{
     public JFrame frame;
     private JButton register;
     private JLabel nameLabel, passLabel, userLabel, imgLabel, errorRegistration;
-    private ImageIcon topBank;
 
     public NewUser() { // create a constructor for the starting panel
         super("NewUserPage"); // use the constructor for the superclass JFrame to create a panel

@@ -9,10 +9,8 @@ import static com.company.User.users;
 public class UserHomePage extends JFrame {
 
     //declaration of the fields
-    private final Font SERIF = new Font("Serif", Font.ITALIC, 20);
+    Font SERIF = new Font("Serif", Font.ITALIC, 20);
     private JLabel nameLabel, balanceLabel, bankIcon;
-    private String name;
-    private double bal = 0;
     private JButton depositButton, withdrawButton, historyOfTransactionsButton, exitButton;
 
     private JPanel jButtonPanel, jLabelPanel;
@@ -20,7 +18,7 @@ public class UserHomePage extends JFrame {
     public UserHomePage(int position) {
         //basic window parameter stuff
         setResizable(false);
-        setSize(450, 260);
+        setSize(500, 260);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
@@ -37,32 +35,25 @@ public class UserHomePage extends JFrame {
         jButtonPanel.setLayout(new GridLayout(1, 3));
 
         //initialization of the Name label component
-        /**
-         * needs formatting
-         */
         nameLabel = new JLabel("Name:" + users.get(position).getName());
 
+        nameLabel.setFont(SERIF);
+
         //initialization of the Balance label component
-        /**
-         * formatting
-         */
         balanceLabel = new JLabel("Sum:" + users.get(position).getBalance());
+        balanceLabel.setFont(SERIF);
 
         //initialization of the Withdraw button component
-        /**
-         * formatting
-         */
         withdrawButton = new JButton("Withdraw");
+        withdrawButton.setFont(SERIF);
         withdrawButton.addActionListener(e -> {
             new WithdrawPanel();
             dispose();
         });
 
         //initialization of the Deposit button component
-        /**
-         * formatting
-         */
         depositButton = new JButton("Deposit");
+        depositButton.setFont(SERIF);
         depositButton.addActionListener(e -> {
             new DepositPanel();
             dispose();
@@ -71,15 +62,13 @@ public class UserHomePage extends JFrame {
 
         //initialization of the History of transaction button component
         historyOfTransactionsButton = new JButton("Action History");
-        historyOfTransactionsButton.addActionListener(e -> {
-            new HistoryTransactionsPanel();
-        });
+        historyOfTransactionsButton.setFont(SERIF);
+        historyOfTransactionsButton.addActionListener(e -> new HistoryTransactionsPanel());
 
         //initialization of the Exit button component
         exitButton = new JButton("Exit page");
-        exitButton.addActionListener(e -> {
-            dispose();
-        });
+        exitButton.setFont(SERIF);
+        exitButton.addActionListener(e -> dispose());
 
         //adding the components to their respective panels
         jButtonPanel.add(depositButton);

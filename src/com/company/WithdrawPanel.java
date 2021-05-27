@@ -2,6 +2,7 @@ package com.company;
 
 import java.awt.*;
 import java.io.IOException;
+import java.security.InvalidParameterException;
 
 import javax.swing.*;
 
@@ -16,7 +17,7 @@ public class WithdrawPanel extends JFrame {
     public WithdrawPanel() {
         // window parameters
         setResizable(false);
-        setSize(450, 260);
+        setSize(500, 260);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
@@ -36,20 +37,31 @@ public class WithdrawPanel extends JFrame {
 
         // declaration of the parameters
         enterSum = new JTextField(15);
+        enterSum.setFont(SERIF);
+
         withdrawLabel = new JLabel("Sum to be withdrawn:");
+        withdrawLabel.setFont(SERIF);
 
         withdrawButton = new JButton("Withdraw");
+        withdrawButton.setFont(SERIF);
         withdrawButton.addActionListener(e -> {
-            User.users.get(User.currentUserPosition).withdraw(Double.parseDouble(enterSum.getText()));
-            enterSum.setText("");
             try {
-                User.updateUsers();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+                User.users.get(User.currentUserPosition).withdraw(Double.parseDouble(enterSum.getText()));
+                enterSum.setText("");
+                try {
+                    User.updateUsers();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            } catch (NumberFormatException exception){
+                withdrawLabel.setText("Please, enter a number.");
+            } catch (InvalidParameterException exception){
+                withdrawLabel.setText("Too much to withdraw.");
             }
         });
 
         exitButton = new JButton("Exit page");
+        exitButton.setFont(SERIF);
         exitButton.addActionListener(e -> {
             new UserHomePage(User.currentUserPosition);
             dispose();

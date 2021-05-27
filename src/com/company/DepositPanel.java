@@ -17,7 +17,7 @@ public class DepositPanel extends JFrame {
     public DepositPanel() {
         // window parameters
         setResizable(false);
-        setSize(450, 260);
+        setSize(500, 260);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
@@ -32,24 +32,24 @@ public class DepositPanel extends JFrame {
 
         // declaration of the parameters
         enterSum = new JTextField(15);
+        enterSum.setFont(SERIF);
+
         labelDeposit = new JLabel("Sum to be deposited:");
+        labelDeposit.setFont(SERIF);
 
         depositButton = new JButton("Deposit");
+        depositButton.setFont(SERIF);
         depositButton.addActionListener(e -> {
-            User.users.get(User.currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
-            enterSum.setText("");
-            try {
-                User.updateUsers();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
+            depositFunction();
         });
 
         exitButton = new JButton("Exit page");
+        exitButton.setFont(SERIF);
         exitButton.addActionListener(e -> {
             new UserHomePage(User.currentUserPosition);
             dispose();
         });
+
         // adding them to the panel in the correct order
         jPanel.add(labelDeposit);
         jPanel.add(enterSum);
@@ -58,5 +58,20 @@ public class DepositPanel extends JFrame {
         // insertion of the icon and panel into the frame
         add(bankIcon);
         add(jPanel);
+    }
+
+    //deposit function which verifies or denies operation
+    private void depositFunction() {
+        try {
+            User.users.get(User.currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));
+            enterSum.setText("");
+            try {
+                User.updateUsers();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        } catch (NumberFormatException exception){
+            labelDeposit.setText("Please, enter a number.");
+        }
     }
 }

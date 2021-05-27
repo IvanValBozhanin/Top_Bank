@@ -16,9 +16,7 @@ public class User implements Serializable {
     public static int currentUserPosition;
 
     // initialize all the fields which will be needed
-    private String name;
-    private String username;
-    private String password;
+    private String name, username, password;
     private double balance;
     private ArrayList<Triplet> register;
 
@@ -41,17 +39,11 @@ public class User implements Serializable {
 
     // defines the operations when withdrawing
     public void withdraw(double sum){
-        try {
-            if(sum <= balance){
-                register.add(new Triplet(true, new Date(), sum));
-                balance -= sum;
-            }
-            else{
-                throw new InvalidParameterException();
-            }
-        }
-        catch (InvalidParameterException e){
-            System.out.println("Cannot withdraw so much money. username: " + username);
+        if(sum <= balance){
+            register.add(new Triplet(true, new Date(), sum));
+            balance -= sum;
+        } else {
+            throw new InvalidParameterException();
         }
     }
 

@@ -15,7 +15,6 @@ public class StartPanel extends JFrame {
     private JTextField textName, textPass;
     private JButton logIn, newUser;
     private JLabel nameLabel, passLabel, imgLabel, errorLogIn;
-    private ImageIcon topBank;
 
     public StartPanel() throws IOException { // create a constructor for the starting panel
         super("FrontPage"); // use the constructor for the superclass JFrame to create a panel
@@ -32,33 +31,33 @@ public class StartPanel extends JFrame {
 
         //set the text, font, orientation, and position for the error message
         errorLogIn = new JLabel("Please, fill out all fields.");
-        errorLogIn.setFont(new Font("Serif", Font.ITALIC, 20));
+        errorLogIn.setFont(SERIF);
         errorLogIn.setBounds(250, 10, 300, 50);
         errorLogIn.setVisible(false);
 
         // set the text, font, orientation and position for the user name label
         nameLabel = new JLabel("Username:");
-        nameLabel.setFont(new Font("Serif", Font.ITALIC, 20));
+        nameLabel.setFont(SERIF);
         nameLabel.setBounds(30, 100, 100, 110);
 
         // set the font, orientation and position for the user name text field
         textName = new JTextField();
-        textName.setFont(new Font("Serif", Font.ITALIC, 20));
+        textName.setFont(SERIF);
         textName.setBounds(125, 140, 300, 30);
 
         // set the text, font, orientation and position for the password label
         passLabel = new JLabel("Password:");
-        passLabel.setFont(new Font("Serif", Font.ITALIC, 20));
+        passLabel.setFont(SERIF);
         passLabel.setBounds(30, 150, 100, 110);
 
         // set the font, orientation and position for the password field which hides its text
         textPass = new JPasswordField();
-        textPass.setFont(new Font("Serif", Font.ITALIC, 20));
+        textPass.setFont(SERIF);
         textPass.setBounds(125, 190, 300, 30);
 
         // set the text, font, orientation, position, and function for log in button
         logIn = new JButton("Log in");
-        logIn.setFont(new Font("Serif", Font.ITALIC, 20));
+        logIn.setFont(SERIF);
         logIn.setBounds(150, 250, 100, 30);
         logIn.addActionListener(e -> {
             validateLogIn();
@@ -66,7 +65,7 @@ public class StartPanel extends JFrame {
 
         // set the text, font, orientation, position, and function for the new user button
         newUser = new JButton("New User");
-        newUser.setFont(new Font("Serif", Font.ITALIC, 20));
+        newUser.setFont(SERIF);
         newUser.setBounds(270, 250, 120, 30);
         newUser.addActionListener(e -> {
             new NewUser();
