@@ -12,6 +12,7 @@ import java.util.Date;
 // User class: represents the client in the system
 public class User implements Serializable {
 
+    //initialize static fields for all users
     public static ArrayList<User> users = new ArrayList<>();
     public static int currentUserPosition;
 
@@ -54,7 +55,6 @@ public class User implements Serializable {
     }
 
     //getters for the field variables
-
     public ArrayList<Triplet> getRegister() {
         return register;
     }
@@ -75,15 +75,15 @@ public class User implements Serializable {
         return balance;
     }
 
-    // toString function
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", balance=" + balance +
-                ", register=" + register +
-                '}';
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", balance=").append(balance);
+        sb.append(", register=").append(register);
+        sb.append('}');
+        return sb.toString();
     }
 }

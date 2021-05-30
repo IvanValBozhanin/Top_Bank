@@ -203,7 +203,7 @@ public class HistoryTransactionsPanel extends JFrame {
         }
     }
 
-    //implements the merging part of the sort
+    //implements the merging part of the Merging Sort
     public static <E> void merge(E[] first, E[] second, E[] list,
                                  Comparator<? super E> comparator) {
         int f = 0, s = 0,  n = 0;

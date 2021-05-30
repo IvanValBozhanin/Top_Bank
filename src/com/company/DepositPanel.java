@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class DepositPanel extends JFrame {
 
-    //initialization of the fields
+    //declaration of the deposit and exit buttons, the jpanel, the text field used for sum insertion, initialization AND declaration of the text font
     private final Font SERIF = new Font("Serif", Font.ITALIC, 20);
     private JLabel labelDeposit, bankIcon;
     private JButton depositButton, exitButton;
@@ -15,22 +15,22 @@ public class DepositPanel extends JFrame {
     private JTextField enterSum;
 
     public DepositPanel() {
-        // window parameters
+        // setting window parameters - opportunity of resizing, final size, layout
         setResizable(false);
         setSize(500, 260);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
 
-        // bank logo stuff
+        // declaration and initialization of the Bank logo as a JLabel, setting its position and size
         bankIcon = new JLabel(new ImageIcon("TopBank.png"));
         bankIcon.setBounds(20, 10, 215, 103);
 
-        // grid panel
+        // grid panel 2x2, label and textbox up, buttons down
         jPanel = new JPanel();
         jPanel.setLayout(new GridLayout(2, 2));
 
-        // declaration of the parameters
+        // setting font, setting label's text, setting textfield size (15 letters), button names and action listener
         enterSum = new JTextField(15);
         enterSum.setFont(SERIF);
 
@@ -43,6 +43,7 @@ public class DepositPanel extends JFrame {
             depositFunction();
         });
 
+        //exit button parameters
         exitButton = new JButton("Exit page");
         exitButton.setFont(SERIF);
         exitButton.addActionListener(e -> {
@@ -60,7 +61,7 @@ public class DepositPanel extends JFrame {
         add(jPanel);
     }
 
-    //deposit function which verifies or denies operation
+    //deposit function which verifies or denies the operation
     private void depositFunction() {
         try {
             User.users.get(User.currentUserPosition).deposit(Double.parseDouble(enterSum.getText()));

@@ -20,6 +20,7 @@ public class StartPanel extends JFrame {
         super("FrontPage"); // use the constructor for the superclass JFrame to create a panel
         frame = new JFrame(); // declare the JFrame
 
+        //retrieving all the information saved in the source file
         restoreDataFromFile();
 
         setLayout(new FlowLayout()); // set the layout to be a flow layout

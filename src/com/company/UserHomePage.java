@@ -8,7 +8,7 @@ import static com.company.User.users;
 
 public class UserHomePage extends JFrame {
 
-    //declaration of the fields
+    //declaration of the deposit, withdraw and exit buttons, the jpanels, initialization AND declaration of the text font
     Font SERIF = new Font("Serif", Font.ITALIC, 20);
     private JLabel nameLabel, balanceLabel, bankIcon;
     private JButton depositButton, withdrawButton, historyOfTransactionsButton, exitButton;
@@ -16,14 +16,14 @@ public class UserHomePage extends JFrame {
     private JPanel jButtonPanel, jLabelPanel;
 
     public UserHomePage(int position) {
-        //basic window parameter stuff
+        // setting window parameters - opportunity of resizing, final size, layout
         setResizable(false);
         setSize(500, 260);
         setVisible(true);
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
 
-        //adding bank logo to frame
+        //adding bank logo to frame, setting its location and size
         bankIcon = new JLabel(new ImageIcon("TopBank.png"));
         bankIcon.setBounds(20, 10, 215, 103);
         add(bankIcon);

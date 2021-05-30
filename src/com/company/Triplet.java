@@ -19,7 +19,7 @@ public class Triplet implements Serializable {
         this.sum = sum;
     }
 
-    // getters of the class's fields
+    // getters of the class fields
 
     public boolean isWithdraw() {
         return isWithdraw;
